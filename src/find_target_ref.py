@@ -1,25 +1,20 @@
 from argparse import ArgumentParser
-import re
-
-pr_id_pattern = re.compile('^https://bitbucket.org/(.+?)/(.+?)/pull-requests/(\d+)$]')
+import requests
 
 
-def get_bitbuck_pr_api_url(user_pr_url: str) -> str:
-    match = pr_id_pattern.match(user_pr_url)
-    if match:
-        user = match.group(1)
-        repo = match.group(2)
-        pr_id = match.group(3)
-    else:
-        raise RuntimeError("Url provided does not match known pattern: {}".format(user_pr_url))
-
-    return "https://api.bitbucket.org/2.0/repositories/{}/{}/pullrequests/{}".format(user, repo,
-                                                                                     pr_id)
-
-
-if __name__ == 'main':
+if __name__ == '__main__':
     parser = ArgumentParser()
-    parser.add_argument('pull_request_url', type=str)
+    parser.add_argument('--auth_user', type=str)
+    parser.add_argument('--auth_password', type=str)
+    parser.add_argument('--project_user', type=str)
+    parser.add_argument('--project_reponame', type=str)
+    parser.add_argument('--pr_number', type=str)
     args = parser.parse_args()
 
-    pr_rest_url = get_bitbuck_pr_api_url(args.pull_request_url)
+    pr_rest_url = "https://api.bitbucket.org/2.0/repositories/{}/{}/pullrequests/{}".format(args.project_user,
+                                                                                            args.project_reponame,
+                                                                                            args.pr_number)
+    response = requests.get(pr_rest_url, auth=(args.auth_user, args.auth_password))
+    response.raise_for_status()
+    pr_target = response.json()['destination']['commit']['hash']
+    print(pr_target)
