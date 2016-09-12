@@ -4,11 +4,11 @@ import requests
 
 if __name__ == '__main__':
     parser = ArgumentParser()
-    parser.add_argument('--auth_user', type=str)
-    parser.add_argument('--auth_password', type=str)
-    parser.add_argument('--project_user', type=str)
-    parser.add_argument('--project_reponame', type=str)
-    parser.add_argument('--pr_number', type=str)
+    parser.add_argument('-u', '--auth_user', type=str)
+    parser.add_argument('-p', '--auth_password', type=str)
+    parser.add_argument('-o', '--project_user', type=str)
+    parser.add_argument('-r', '--project_reponame', type=str)
+    parser.add_argument('-n', '--pr_number', type=str)
     args = parser.parse_args()
 
     pr_rest_url = "https://api.bitbucket.org/2.0/repositories/{}/{}/pullrequests/{}".format(args.project_user,
