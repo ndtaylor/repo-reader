@@ -1,2 +1,2 @@
+httpretty==0.8.14
 requests==2.11.1
-

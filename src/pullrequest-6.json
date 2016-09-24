@@ -1,0 +1,123 @@
+{
+  "merge_commit": null,
+  "description": "This is the description",
+  "links": {
+    "decline": {
+      "href": "https://api.bitbucket.org/2.0/repositories/the_user/the_project/pullrequests/6/decline"
+    },
+    "commits": {
+      "href": "https://api.bitbucket.org/2.0/repositories/the_user/the_project/pullrequests/6/commits"
+    },
+    "self": {
+      "href": "https://api.bitbucket.org/2.0/repositories/the_user/the_project/pullrequests/6"
+    },
+    "comments": {
+      "href": "https://api.bitbucket.org/2.0/repositories/the_user/the_project/pullrequests/6/comments"
+    },
+    "merge": {
+      "href": "https://api.bitbucket.org/2.0/repositories/the_user/the_project/pullrequests/6/merge"
+    },
+    "html": {
+      "href": "https://bitbucket.org/the_user/the_project/pull-requests/6"
+    },
+    "activity": {
+      "href": "https://api.bitbucket.org/2.0/repositories/the_user/the_project/pullrequests/6/activity"
+    },
+    "diff": {
+      "href": "https://api.bitbucket.org/2.0/repositories/the_user/the_project/pullrequests/6/diff"
+    },
+    "approve": {
+      "href": "https://api.bitbucket.org/2.0/repositories/the_user/the_project/pullrequests/6/approve"
+    }
+  },
+  "title": "pull request title",
+  "close_source_branch": true,
+  "reviewers": [],
+  "destination": {
+    "commit": {
+      "hash": "the_target_hash",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/repositories/the_user/the_project/commit/d563f3f26898"
+        }
+      }
+    },
+    "repository": {
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/repositories/the_user/the_project"
+        },
+        "html": {
+          "href": "https://bitbucket.org/the_user/the_project"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/the_user/the_project/avatar/32/"
+        }
+      },
+      "type": "repository",
+      "name": "the_project",
+      "full_name": "the_user/the_project",
+      "uuid": "{a5b2e0e1-1b37-4b19-89f5-c81a099ce2d3}"
+    },
+    "branch": {
+      "name": "master"
+    }
+  },
+  "state": "OPEN",
+  "closed_by": null,
+  "source": {
+    "commit": {
+      "hash": "31e27f92cf04",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/repositories/the_user/the_project/commit/31e27f92cf04"
+        }
+      }
+    },
+    "repository": {
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/repositories/the_user/the_project"
+        },
+        "html": {
+          "href": "https://bitbucket.org/the_user/the_project"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/the_user/the_project/avatar/32/"
+        }
+      },
+      "type": "repository",
+      "name": "the_project",
+      "full_name": "the_user/the_project",
+      "uuid": "{a5b2e0e1-1b37-4b19-89f5-c81a099ce2d3}"
+    },
+    "branch": {
+      "name": "the_branch"
+    }
+  },
+  "comment_count": 0,
+  "author": {
+    "username": "the_author",
+    "display_name": "The Author",
+    "type": "user",
+    "uuid": "{8b379d70-cf97-450a-b0e1-e6c500b7c315}",
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/users/the_author"
+      },
+      "html": {
+        "href": "https://bitbucket.org/the_author/"
+      },
+      "avatar": {
+        "href": "https://bitbucket.org/account/the_author/avatar/32/"
+      }
+    }
+  },
+  "created_on": "2016-08-17T14:42:26.485532+00:00",
+  "participants": [],
+  "reason": "",
+  "updated_on": "2016-08-21T01:37:17.572205+00:00",
+  "type": "pullrequest",
+  "id": 6,
+  "task_count": 0
+}

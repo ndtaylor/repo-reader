@@ -6,7 +6,7 @@ import requests
 pr_id_pattern = re.compile('^https://bitbucket\.org/([^/]+)/([^/]+)/pull-requests/(\d+)$')
 
 
-def get_bitbuck_pr_api_url(user_pr_url: str) -> str:
+def _get_bitbuck_pr_api_url(user_pr_url: str) -> str:
     match = pr_id_pattern.match(user_pr_url)
     if match:
         user = match.group(1)
@@ -19,6 +19,16 @@ def get_bitbuck_pr_api_url(user_pr_url: str) -> str:
                                                                                      pr_id)
 
 
+def get_target_ref(args) -> str:
+    if not args.pr_url:
+        return 'origin/master'
+
+    pr_rest_url = _get_bitbuck_pr_api_url(args.pr_url)
+    response = requests.get(pr_rest_url, auth=(args.auth_user, args.auth_password))
+    response.raise_for_status()
+    return response.json()['destination']['commit']['hash']
+
+
 if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('-u', '--auth_user', type=str, required=True)
@@ -26,12 +36,4 @@ if __name__ == '__main__':
     parser.add_argument('-r', '--pr_url', type=str, nargs='?', default='')
     args = parser.parse_args()
 
-    if not args.pr_url:
-        print('origin/master')
-        quit()
-
-    pr_rest_url = get_bitbuck_pr_api_url(args.pr_url)
-    response = requests.get(pr_rest_url, auth=(args.auth_user, args.auth_password))
-    response.raise_for_status()
-    pr_target = response.json()['destination']['commit']['hash']
-    print(pr_target)
+    print(get_target_ref(args))
