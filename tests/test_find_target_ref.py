@@ -2,7 +2,7 @@ import unittest
 import httpretty
 from types import SimpleNamespace
 
-from . import find_target_ref
+from reporeader import find_target_ref
 
 
 class TestFindTargetRef(unittest.TestCase):
